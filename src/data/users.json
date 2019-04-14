@@ -1,0 +1,23 @@
+[
+    {
+      "name": "saif ur rehman",
+      "designation": "Sr Software Engineer",
+      "checkin": null,
+      "checkout": null,
+      "picture": "saif.jpg"
+    },
+    {
+      "name": "ubaid ur rehman",
+      "designation": "Software Engineer",
+      "checkin": null,
+      "checkout": null,
+      "picture": "ubaid.jpg"
+    },
+    {
+      "name": "Atta ur rehman",
+      "designation": "Admin",
+      "checkin": null,
+      "checkout": null,
+      "picture": "atta.jpg"
+    }
+]
