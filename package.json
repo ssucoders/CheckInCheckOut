@@ -1,7 +1,7 @@
 {
-  "name": "reactjs101",
+  "name": "checkincheckout",
   "version": "1.0.0",
-  "description": "Learning React JS",
+  "description": "Employee check in check out",
   "main": "src/index.js",
   "dependencies": {
     "react": "^16.8.5",
