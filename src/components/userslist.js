@@ -36,12 +36,17 @@ class UsersList extends Component{
       
         return (
             <div>
-                <h1>Check in Check Out</h1>
+                <h1>SSU: Check in Check Out</h1>
+                <ul>
                 {
-                    users.map(el=>{
-                    return <User item={el} />
-                })
+                    users.map((el, i)=>{
+                        return (<li key={i}>
+                            <User item={el} />
+                            </li>)
+                    })
                 }
+                </ul>
+               
             </div>
         )
     }

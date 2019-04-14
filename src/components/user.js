@@ -10,7 +10,14 @@ class User extends Component{
     render(){
         return (
             <div>
-              {this.props.item.name}
+                <img src={"images/"+ this.props.item.picture} />
+                <h4>{this.props.item.name}</h4>
+                <p>{this.props.item.designation}</p> 
+
+                <div>
+                    <button>Check In</button>
+                    <button>Check Out</button>
+                </div>
             </div>
         )
     }
