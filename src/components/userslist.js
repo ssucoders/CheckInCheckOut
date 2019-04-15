@@ -6,25 +6,25 @@ class UsersList extends Component{
         this.state={
             users: [
                 {
-                  "name": "saif ur rehman",
+                  "name": "Saif ur rehman",
                   "designation": "Sr Software Engineer",
                   "checkin": null,
                   "checkout": null,
-                  "picture": "saif.jpg"
+                  "picture": "IMG-20190205-WA0167.jpg"
                 },
                 {
-                  "name": "ubaid ur rehman",
+                  "name": "Ubaid ur rehman",
                   "designation": "Software Engineer",
                   "checkin": null,
                   "checkout": null,
-                  "picture": "ubaid.jpg"
+                  "picture": "IMG-20190205-WA0150.jpg"
                 },
                 {
                   "name": "Atta ur rehman",
                   "designation": "Admin",
                   "checkin": null,
                   "checkout": null,
-                  "picture": "atta.jpg"
+                  "picture": "IMG-20190205-WA0170.jpg"
                 }
             ]
         }
