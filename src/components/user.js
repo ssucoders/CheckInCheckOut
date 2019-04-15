@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import { Button ,Badge  } from 'react-bootstrap';
 
 class User extends Component{
     constructor(props){
@@ -10,13 +11,12 @@ class User extends Component{
     render(){
         return (
             <div>
-                <img src={"images/"+ this.props.item.picture} />
-                <h4>{this.props.item.name}</h4>
-                <p>{this.props.item.designation}</p> 
-
+                <img src={"/images/users/"+ this.props.item.picture} />
+                <h2> <Badge variant="secondary">{this.props.item.name}</Badge></h2>
+                <h4><Badge variant="info">{this.props.item.designation}</Badge></h4>
                 <div>
-                    <button>Check In</button>
-                    <button>Check Out</button>
+                <Button className="in" variant="success">Check In</Button>
+                <Button className="out" variant="danger">Check Out</Button>
                 </div>
             </div>
         )
