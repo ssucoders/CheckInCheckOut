@@ -14,20 +14,24 @@ checkInUser(){
     this.props.checkin(this.props.item.id)
 }
     render(){
+
+        let user = this.props.item;
+
         return (
             <div>
-                <img src={"/images/users/"+ this.props.item.picture} />
-                <h2> <Badge variant="secondary">{this.props.item.name}</Badge></h2>
-                <h4><Badge variant="info">{this.props.item.designation}</Badge></h4>
+                <img src={"/images/users/"+ user.picture} />
+                <h2> <Badge variant="secondary">{user.name}</Badge></h2>
+                <h4><Badge variant="info">{user.designation}</Badge></h4>
                 <div>
                 <Button className="in" variant="success" onClick={this.checkInUser}>Check In</Button>
-                <Button className="out" variant="danger">Check Out</Button>
+                {
+                    user.checkin!=null?<Button className="out" variant="danger">Check Out</Button>:""
+                }
+                
                 </div>
                 <div>
-                    <p>Check In Time:</p>
-                    <p>{this.props.item.checkin}</p> 
-                    <p>Check Out Time:</p>
-                    <p>{this.props.item.checkout}</p>
+                    <p>Check In Time: {user.checkin}</p> 
+                    <p>Check Out Time: {user.checkout}</p>
                 </div>
             </div>
         )
