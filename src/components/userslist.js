@@ -8,7 +8,7 @@ class UsersList extends Component{
                 {
                   "name": "Saif ur rehman",
                   "designation": "Sr Software Engineer",
-                  "checkin": null,
+                  "checkin": "8:30 am",
                   "checkout": null,
                   "picture": "IMG-20190205-WA0167.jpg"
                 },
@@ -29,6 +29,7 @@ class UsersList extends Component{
             ]
         }
     }
+    
 
     render(){
 

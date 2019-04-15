@@ -18,7 +18,14 @@ class User extends Component{
                 <Button className="in" variant="success">Check In</Button>
                 <Button className="out" variant="danger">Check Out</Button>
                 </div>
+                <div>
+                    <p>Check In Time</p>    
+                    <input type="text" value={this.props.item.id} />
+                    <p>Check Out Time</p>    
+                    <input type="text" />                   
+                </div>>
             </div>
+            
         )
     }
 }
