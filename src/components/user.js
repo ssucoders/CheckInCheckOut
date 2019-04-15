@@ -6,24 +6,28 @@ class User extends Component{
         super(props);
         this.state={
         }
+        this.checkInUser = this.checkInUser.bind(this)
     }
-
+checkInUser(){
+    this.props.checkin(this.props.item.id)
+}
     render(){
+        let user = this.props.item;
         return (
             <div>
-                <img src={"/images/users/"+ this.props.item.picture} />
-                <h2> <Badge variant="secondary">{this.props.item.name}</Badge></h2>
-                <h4><Badge variant="info">{this.props.item.designation}</Badge></h4>
+                <img src={"/images/users/"+ user.picture} />
+                <h2> <Badge variant="secondary">{user.name}</Badge></h2>
+                <h4><Badge variant="info">{user.designation}</Badge></h4>
                 <div>
-                <Button className="in" variant="success">Check In</Button>
-                <Button className="out" variant="danger">Check Out</Button>
+                <Button className="in" variant="success" onClick={this.checkInUser}>Check In</Button>
+                {
+                    user.checkin!=null?<Button className="out" variant="danger">Check Out</Button>:""
+                }
                 </div>
                 <div>
-                    <p>Check In Time</p>    
-                    <input type="text" value={this.props.item.id} />
-                    <p>Check Out Time</p>    
-                    <input type="text" />                   
-                </div>>
+                    <p>Check In Time: {user.checkin}</p> 
+                    <p>Check Out Time: {user.checkout}</p>
+                </div>
             </div>
             
         )
