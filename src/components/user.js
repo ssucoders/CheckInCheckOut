@@ -6,8 +6,13 @@ class User extends Component{
         super(props);
         this.state={
         }
+       
+        this.checkInUser = this.checkInUser.bind(this)
     }
 
+checkInUser(){
+    this.props.checkin(this.props.item.id)
+}
     render(){
         return (
             <div>
@@ -15,8 +20,14 @@ class User extends Component{
                 <h2> <Badge variant="secondary">{this.props.item.name}</Badge></h2>
                 <h4><Badge variant="info">{this.props.item.designation}</Badge></h4>
                 <div>
-                <Button className="in" variant="success">Check In</Button>
+                <Button className="in" variant="success" onClick={this.checkInUser}>Check In</Button>
                 <Button className="out" variant="danger">Check Out</Button>
+                </div>
+                <div>
+                    <p>Check In Time:</p>
+                    <p>{this.props.item.checkin}</p> 
+                    <p>Check Out Time:</p>
+                    <p>{this.props.item.checkout}</p>
                 </div>
             </div>
         )
