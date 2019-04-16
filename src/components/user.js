@@ -7,9 +7,13 @@ class User extends Component{
         this.state={
         }
         this.checkInUser = this.checkInUser.bind(this)
+        this.checkOutUser = this.checkOutUser.bind(this)
     }
 checkInUser(){
     this.props.checkin(this.props.item.id)
+}
+checkOutUser(){
+    this.props.checkout(this.props.item.id)
 }
     render(){
         let user = this.props.item;
@@ -21,7 +25,7 @@ checkInUser(){
                 <div>
                 <Button className="in" variant="success" onClick={this.checkInUser}>Check In</Button>
                 {
-                    user.checkin!=null?<Button className="out" variant="danger">Check Out</Button>:""
+                    user.checkin!=null?<Button className="out" variant="danger" onClick={this.checkOutUser}>Check Out</Button>:""
                 }
                 </div>
                 <div>

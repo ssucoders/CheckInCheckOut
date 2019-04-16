@@ -32,6 +32,7 @@ class UsersList extends Component{
             ]
         }
         this.checkIn = this.checkIn.bind(this)
+        this.checkOut = this.checkOut.bind(this)
         this.localTime = this.localTime.bind(this)
     }
     checkIn(id){
@@ -47,6 +48,19 @@ class UsersList extends Component{
         })
     }
     
+    checkOut(id){
+        console.log(id)
+        this.setState(state =>{
+            let curUsers = state.users.map(el=>{
+                if(el.id==id){
+                    el.checkout = this.localTime()
+                }
+                return el
+            })
+            return {users:curUsers}
+        }) 
+    }
+
     localTime(){
         var d = new Date();
         return d.toLocaleTimeString();
@@ -63,7 +77,7 @@ class UsersList extends Component{
                 {
                     users.map((el, i)=>{
                         return (<li key={i}>
-                            <User item={el} checkin={this.checkIn} />
+                            <User item={el} checkin={this.checkIn} checkout={this.checkOut} />
                             </li>)
                     })
                 }
