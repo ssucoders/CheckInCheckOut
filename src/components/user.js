@@ -29,8 +29,8 @@ checkOutUser(){
                 }
                 </div>
                 <div>
-                    <p>Check In Time: {user.checkin}</p> 
-                    <p>Check Out Time: {user.checkout}</p>
+                    <p>Check In Time: {user.checkin!=null? user.checkin.toLocaleTimeString():""}</p> 
+                    <p>Check Out Time: {user.checkout!=null? user.checkout.toLocaleTimeString():""}</p>
                 </div>
             </div>
             

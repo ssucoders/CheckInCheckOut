@@ -43,7 +43,19 @@ class UsersList extends Component{
                     el.checkin = this.localTime()
                 }
                 return el
+            }).sort((a,b) =>{
+                if(a.checkin == null){
+                    return 1
+                }else if(b.checkin==null){
+                    return -1
+                }else if(a.checkin.getTime() > b.checkin.getTime()){
+                    return 1
+                }else{
+                    return -1
+                }
+
             })
+            
             return {users:curUsers}
         })
     }
@@ -63,7 +75,7 @@ class UsersList extends Component{
 
     localTime(){
         var d = new Date();
-        return d.toLocaleTimeString();
+        return d //.toLocaleTimeString();
     }
 
     render(){
@@ -76,7 +88,7 @@ class UsersList extends Component{
                 <ul>
                 {
                     users.map((el, i)=>{
-                        return (<li key={i}>
+                        return (<li className={el.checkin!=null?"changeBg":""} key={i}>
                             <User item={el} checkin={this.checkIn} checkout={this.checkOut} />
                             </li>)
                     })
