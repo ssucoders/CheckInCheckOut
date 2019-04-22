@@ -1,35 +1,11 @@
 import React, {Component} from "react";
 import User from "./user";
+import {fetchEmployees} from "../API"
 class UsersList extends Component{
     constructor(props){
         super(props);
         this.state={
-            users: [
-                {
-                  "name": "Saif ur rehman",
-                  "designation": "Sr Software Engineer",
-                  "checkin": null,
-                  "checkout": null,
-                  "picture": "IMG-20190205-WA0167.jpg",
-                  "id":"1"
-                },
-                {
-                  "name": "Ubaid ur rehman",
-                  "designation": "Software Engineer",
-                  "checkin": null,
-                  "checkout": null,
-                  "picture": "IMG-20190205-WA0150.jpg",
-                  "id":"2"
-                },
-                {
-                  "name": "Atta ur rehman",
-                  "designation": "Admin",
-                  "checkin": null,
-                  "checkout": null,
-                  "picture": "IMG-20190205-WA0170.jpg",
-                  "id":"3"
-                }
-            ]
+            users: []
         }
         this.checkIn = this.checkIn.bind(this)
         this.checkOut = this.checkOut.bind(this)
@@ -76,6 +52,13 @@ class UsersList extends Component{
     localTime(){
         var d = new Date();
         return d //.toLocaleTimeString();
+    }
+
+    componentDidMount(){
+        var self = this;
+        fetchEmployees().then((response)=>{
+            self.setState({users:response.data})
+        });
     }
 
     render(){
