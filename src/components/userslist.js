@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import User from "./user";
-import {fetchEmployees} from "../API"
+import {fetchEmployees} from "../API";
+import Header from "./header";
+
 class UsersList extends Component{
     constructor(props){
         super(props);
@@ -10,6 +12,8 @@ class UsersList extends Component{
         this.checkIn = this.checkIn.bind(this)
         this.checkOut = this.checkOut.bind(this)
         this.localTime = this.localTime.bind(this)
+        this.searchUsers = this.searchUsers.bind(this)
+        this.setupUsers = this.setupUsers.bind(this)
     }
     checkIn(id){
         console.log(id)
@@ -36,6 +40,20 @@ class UsersList extends Component{
         })
     }
     
+    searchUsers(query){
+        console.log(query)
+        this.setState(state =>{
+            let curUsers = this.state.users.filter(el=>{
+                if (el.name.toUpperCase().indexOf(query.toUpperCase()) > -1) {
+                    return el
+                } 
+            })
+            return {users:curUsers}
+        }
+    )
+}
+
+
     checkOut(id){
         console.log(id)
         this.setState(state =>{
@@ -55,6 +73,10 @@ class UsersList extends Component{
     }
 
     componentDidMount(){
+        this.setupUsers();
+    }
+
+    setupUsers(){
         var self = this;
         fetchEmployees().then((response)=>{
             self.setState({users:response.data})
@@ -67,18 +89,17 @@ class UsersList extends Component{
       
         return (
             <div>
-                <h1>SSU: Check in Check Out</h1>
-                <ul>
+                <Header searchusers={this.searchUsers} setupusers={this.setupUsers}/>
+                <ul className="row">
                 {
                     users.map((el, i)=>{
-                        return (<li className={el.checkin!=null?"changeBg":""} key={i}>
+                        return (<li className={el.checkin!=null?"changeBg":""} key={i} >
                             <User item={el} checkin={this.checkIn} checkout={this.checkOut} />
                             </li>)
                     })
                 }
                 </ul>
-               
-            </div>
+        </div>
         )
     }
 }
