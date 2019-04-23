@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { Button ,Badge  } from 'react-bootstrap';
+
 
 class User extends Component{
     constructor(props){
@@ -18,21 +18,21 @@ checkOutUser(){
     render(){
         let user = this.props.item;
         return (
-            <div>
-                <img src={"/images/users/"+ user.picture} />
-                <h2> <Badge variant="secondary">{user.name}</Badge></h2>
-                <h4><Badge variant="info">{user.designation}</Badge></h4>
-                <div>
-                <Button className="in" variant="success" onClick={this.checkInUser}>Check In</Button>
-                {
-                    user.checkin!=null?<Button className="out" variant="danger" onClick={this.checkOutUser}>Check Out</Button>:""
-                }
-                </div>
-                <div>
-                    <p>Check In Time: {user.checkin!=null? user.checkin.toLocaleTimeString():""}</p> 
-                    <p>Check Out Time: {user.checkout!=null? user.checkout.toLocaleTimeString():""}</p>
-                </div>
-            </div>
+<div>
+    <div className="card">
+        <img src={"/images/users/"+ user.picture} className="card-img-top" alt="..." />
+        <div className="card-body">
+            <h4 className="card-title">{user.name}</h4>
+            <h5 className="card-text">{user.designation}</h5>
+            <p>Check In Time: {user.checkin!=null? user.checkin.toLocaleTimeString():""}</p> 
+            <p>Check Out Time: {user.checkout!=null? user.checkout.toLocaleTimeString():""}</p>
+            <a href="#" className="btn btn-primary" onClick={this.checkInUser}>Check In</a>
+            {
+                user.checkin!=null?<button className="btn btn-danger" onClick={this.checkOutUser}>Check Out</button>:""
+            }
+        </div>
+    </div>
+ </div>
             
         )
     }
